@@ -1,0 +1,209 @@
+{
+  "playlistUrl": "https://space.bilibili.com/3546562401667401/lists/9188243?type=season",
+  "playlistTitle": "G7FX Pro",
+  "videos": {
+    "1": {
+      "bvid": "BV1fgKN6aEZu",
+      "duration": "41:24",
+      "title": "G7FX Pro-P1 Introduction To The Pro Course-1",
+      "aid": 116942044137614,
+      "cid": 40080835996
+    },
+    "2": {
+      "bvid": "BV1DNKi6TECE",
+      "duration": "56:48",
+      "title": "G7FX Pro-P2 Reality Check-1",
+      "aid": 116943956805401,
+      "cid": 40086471533
+    },
+    "3": {
+      "bvid": "BV1YFKi66EA5",
+      "duration": "48:05",
+      "title": "G7FX Pro-P3 Sierra Chart Shortcuts-1",
+      "aid": 116944007072751,
+      "cid": 40086539952
+    },
+    "4": {
+      "bvid": "BV1MuKi6vERe",
+      "duration": "01:48:00",
+      "title": "G7FX Pro-P4 Stage 1.1 - Amt Part 1-1",
+      "aid": 116944107865816,
+      "cid": 40086864215
+    },
+    "5": {
+      "bvid": "BV11aKv6fEQY",
+      "duration": "01:34:03",
+      "title": "G7FX Pro-P5 Stage 1.2 - AMT Part 2",
+      "aid": 116944241953127,
+      "cid": 40087260623
+    },
+    "6": {
+      "bvid": "BV1yxK66uEAe",
+      "duration": "01:48:15",
+      "title": "G7FX Pro-P6 Stage 1.3 - Amt Part 3-1",
+      "aid": 116947480021224,
+      "cid": 40108294316
+    },
+    "7": {
+      "bvid": "BV1H8K66iE8x",
+      "duration": "02:21:11",
+      "title": "G7FX Pro-P7 Stage 1.4 - Amt Part 4-1",
+      "aid": 116947496733084,
+      "cid": 40108820830
+    },
+    "8": {
+      "bvid": "BV1k8K66iE71",
+      "duration": "02:35:26",
+      "title": "G7FX Pro-P8 Stage 1.5 - Amt Part 5-1",
+      "aid": 116947496797609,
+      "cid": 40108822194
+    },
+    "9": {
+      "bvid": "BV1Couu6tEU7",
+      "duration": "02:59:10",
+      "title": "G7FX Pro-P9 Stage 1.6 - Amt Part 6-1",
+      "aid": 117058847180156,
+      "cid": 40713521201
+    },
+    "10": {
+      "bvid": "BV14K8568ETY",
+      "duration": "03:15:19",
+      "title": "G7FX Pro-P10 Stage 1.7 - Amt Part 7-1_双语",
+      "aid": 117117500262173,
+      "cid": 41039301163
+    },
+    "11": {
+      "bvid": "BV1gr8U6eENM",
+      "duration": "01:45:18",
+      "title": "G7FX Pro-P11 2.1 Intro To Vwap-1",
+      "aid": 117140216613761,
+      "cid": 41168539083
+    },
+    "12": {
+      "bvid": "BV1XR8s6qEgQ",
+      "duration": "01:23:58",
+      "title": "G7FX Pro-P12 2.2 Vwap Practical - Part 1-1",
+      "aid": 117142280341129,
+      "cid": 41169846634
+    },
+    "13": {
+      "bvid": "BV1Gk8X6JES7",
+      "duration": "01:40:37",
+      "title": "G7FX Pro-P13 2.3 Vwap Practical - Part 2 (Task 3)-1",
+      "aid": 117159325862930,
+      "cid": 41270379199
+    },
+    "14": {
+      "bvid": "BV1h18X67EoT",
+      "duration": "01:43:21",
+      "title": "G7FX Pro-P14 2.4 Dynamic Vs Static Value Part 1-1",
+      "aid": 117159359483238,
+      "cid": 41270446216
+    },
+    "15": {
+      "bvid": "BV1318X67E8g",
+      "duration": "35:23",
+      "title": "G7FX Pro-P15 2.5 How I Enter _ Exit",
+      "aid": 117159359418091,
+      "cid": 41270512617
+    },
+    "16": {
+      "bvid": "BV1ii8X6WEk1",
+      "duration": "01:55:42",
+      "title": "G7FX Pro-P16 2.6 Dynamic Vs Static Value Part 2 (Task 4)-1",
+      "aid": 117159393037073,
+      "cid": 41270575904
+    },
+    "17": {
+      "bvid": "BV1ji8X6WEFq",
+      "duration": "01:19:02",
+      "title": "G7FX Pro-P17 2.7 Market Players-1",
+      "aid": 117159392970775,
+      "cid": 41270643485
+    },
+    "18": {
+      "bvid": "BV1Gmbx6MEQT",
+      "duration": "02:05:14",
+      "title": "G7FX Pro-P18 2.8 Htf Vwaps - Part 1 (Task 6)-1",
+      "aid": 117225210054288,
+      "cid": 41645836753
+    },
+    "19": {
+      "bvid": "BV1Gmbx6MEWb",
+      "duration": "02:29:40",
+      "title": "G7FX Pro-P19 2.91 Htf Vwaps - Part 2 (Task 7)-1",
+      "aid": 117225210054809,
+      "cid": 41645903377
+    },
+    "20": {
+      "bvid": "BV1Gmbx6ME1S",
+      "duration": "49:52",
+      "title": "G7FX Pro-P20 2.100 Instituional Journaling",
+      "aid": 117225210054083,
+      "cid": 41646032395
+    },
+    "21": {
+      "bvid": "BV1YJeH6BEhe",
+      "duration": "01:10:15",
+      "title": "G7FX Pro-P21 3.1 Cumulative Delta-1",
+      "aid": 117276095285150,
+      "cid": 41926002808
+    },
+    "22": {
+      "bvid": "BV1aJeH6BErX",
+      "duration": "02:09:55",
+      "title": "G7FX Pro-P22 3.2 Cumulative Delta Of-1",
+      "aid": 117276095286444,
+      "cid": 41926004173
+    },
+    "23": {
+      "bvid": "BV19JeH6BEcW",
+      "duration": "07:21",
+      "title": "G7FX Pro-P23 3.3 The Footprint - Intro",
+      "aid": 117276095350690,
+      "cid": 41926070023
+    },
+    "24": {
+      "bvid": "BV1YJeH6BEuc",
+      "duration": "32:53",
+      "title": "G7FX Pro-P24 3.4 The Footprint - What is the footprint",
+      "aid": 117276095285944,
+      "cid": 41926131747
+    },
+    "25": {
+      "bvid": "BV1VJeH6zE54",
+      "duration": "30:38",
+      "title": "G7FX Pro-P25 3.5 The Footprint - Further Footprint Example",
+      "aid": 117276095415489,
+      "cid": 41926132439
+    },
+    "26": {
+      "bvid": "BV1YJeH6BEGG",
+      "duration": "01:15:51",
+      "title": "G7FX Pro-P26 3.6 The Footprint - Time Vs Non Time Based Charts-1",
+      "aid": 117276095286215,
+      "cid": 41926133071
+    },
+    "27": {
+      "bvid": "BV19EeH6uE1B",
+      "duration": "01:03:54",
+      "title": "G7FX Pro-P27 3.7 The Footprint - Understanding Delta Stats-1",
+      "aid": 117276112127758,
+      "cid": 41926134953
+    },
+    "28": {
+      "bvid": "BV1XJeH6BEk6",
+      "duration": "50:01",
+      "title": "G7FX Pro-P28 3.8 The Footprint - Installation _ What To Look For-1",
+      "aid": 117276095351726,
+      "cid": 41926198433
+    },
+    "29": {
+      "bvid": "BV1aJeH6BEfm",
+      "duration": "01:16:01",
+      "title": "G7FX Pro-P29 3.9 Footprint Live Example-1",
+      "aid": 117276095285399,
+      "cid": 41926199804
+    }
+  }
+}

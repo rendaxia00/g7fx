@@ -12,6 +12,9 @@ const kbRoot = process.env.KB_ROOT
 const out = path.join(siteRoot, "dist");
 const publicDir = path.join(siteRoot, "src", "public");
 const siteBase = (process.env.SITE_BASE || "").replace(/\/$/, "");
+const courseVideoData = JSON.parse(
+  await fs.readFile(path.join(siteRoot, "data", "course-videos.json"), "utf8"),
+);
 
 const md = new MarkdownIt({ html: true, linkify: true, typographer: true });
 
@@ -60,6 +63,13 @@ const chapterDocs = await Promise.all(chapterFiles.map(async (file) => {
   const number = Number(path.basename(file).match(/^P(\d+)/)?.[1]);
   return loadDoc(file, "课程章节", `/chapters/p${String(number).padStart(2, "0")}/`, number);
 }));
+
+for (const doc of chapterDocs) {
+  const video = courseVideoData.videos[String(doc.order)];
+  if (!video || !/^BV[0-9A-Za-z]+$/.test(video.bvid) || !video.aid || !video.cid) {
+    throw new Error(`P${String(doc.order).padStart(2, "0")} 缺少有效的哔哩哔哩视频映射`);
+  }
+}
 
 const deepFiles = (await listMarkdown(path.join(kbRoot, "02-专题精读"))).sort();
 const deepDocs = await Promise.all(deepFiles.map(async (file, index) => {
@@ -329,15 +339,24 @@ function breadcrumb(doc) {
 
 function docPage(doc, prev = null, next = null) {
   const lesson = doc.kind === "课程章节" ? `P${String(doc.order).padStart(2, "0")}` : doc.kind;
+  const video = doc.kind === "课程章节" ? courseVideoData.videos[String(doc.order)] : null;
   const pager = prev || next ? `<nav class="doc-pager">${prev ? `<a href="${prev.url}"><small>上一章</small><b>← ${esc(prev.title.replace(/^P\d+\s*/, ""))}</b></a>` : "<span></span>"}${next ? `<a href="${next.url}" class="next"><small>下一章</small><b>${esc(next.title.replace(/^P\d+\s*/, ""))} →</b></a>` : ""}</nav>` : "";
-  const tocMatches = [...cleanPublicContent(doc.content).matchAll(/^##\s+(.+)$/gm)].map((m, i) => ({ label: m[1], id: `section-${i + 1}` }));
+  const tocMatches = [
+    ...(video ? [{ label: "本章课程视频", id: "lesson-video" }] : []),
+    ...[...cleanPublicContent(doc.content).matchAll(/^##\s+(.+)$/gm)].map((m, i) => ({ label: m[1], id: `section-${i + 1}` })),
+  ];
   let rendered = articleHtml(doc);
   let tocIndex = 0;
   rendered = rendered.replace(/<h2>(.*?)<\/h2>/g, (_, label) => `<h2 id="section-${++tocIndex}">${label}</h2>`);
   const toc = `<aside class="on-this-page"><span>本页内容</span>${tocMatches.map((x) => `<a href="#${x.id}">${esc(x.label)}</a>`).join("")}</aside>`;
+  const videoBlock = video ? `<section class="lesson-video" id="lesson-video" data-pagefind-ignore>
+    <div class="lesson-video-head"><div><span class="eyebrow">COURSE VIDEO</span><h2>本章课程视频</h2></div><span>${esc(video.duration)}</span></div>
+    <div class="lesson-video-frame"><iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=${esc(video.aid)}&bvid=${esc(video.bvid)}&cid=${esc(video.cid)}&page=1&high_quality=1&danmaku=0" title="${esc(video.title)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <div class="lesson-video-foot"><p>${esc(video.title)}</p><a href="https://www.bilibili.com/video/${esc(video.bvid)}" target="_blank" rel="noopener noreferrer">在哔哩哔哩打开 ↗</a></div>
+  </section>` : "";
   return `${breadcrumb(doc)}<div class="doc-layout"><article class="doc" data-pagefind-body>
     <header class="doc-header"><div class="doc-kicker"><span>${esc(lesson)}</span><span>${esc(doc.data.duration || doc.kind)}</span>${doc.data.detail_level === "deep" ? "<span>英文字幕核验 · 深度版</span>" : ""}</div><h1 data-pagefind-meta="title">${esc(doc.title)}</h1><p>${doc.kind === "课程章节" ? "中文精读 · 原理与证据 · 时间定位 · 判断流程 · 主动回忆" : "从课程原始框架中提炼的中文知识页面"}</p></header>
-    <div class="prose">${rendered}</div>${pager}
+    ${videoBlock}<div class="prose">${rendered}</div>${pager}
   </article>${toc}</div>`;
 }
 
