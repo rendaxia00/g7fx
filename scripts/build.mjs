@@ -220,7 +220,7 @@ function courseCard(doc) {
     <div class="card-top"><span class="lesson-no">P${String(doc.order).padStart(2, "0")}</span><span class="pill ${groupClass}">${group}</span></div>
     <h3>${esc(doc.title.replace(/^P\d+\s*/, ""))}</h3>
     <p>${esc(summary.replace(/^>\s*/, ""))}</p>
-    <div class="card-meta">${icon("clock")}<span>${esc(doc.data.duration || "专题课程")}</span><span class="card-arrow">${icon("arrow")}</span></div>
+    <div class="card-meta">${icon("clock")}<span>${esc(doc.data.duration || "专题课程")}</span>${doc.data.detail_level === "deep" ? '<span class="deep-badge">深度版</span>' : ""}<span class="card-arrow">${icon("arrow")}</span></div>
   </a>`;
 }
 
@@ -336,7 +336,7 @@ function docPage(doc, prev = null, next = null) {
   rendered = rendered.replace(/<h2>(.*?)<\/h2>/g, (_, label) => `<h2 id="section-${++tocIndex}">${label}</h2>`);
   const toc = `<aside class="on-this-page"><span>本页内容</span>${tocMatches.map((x) => `<a href="#${x.id}">${esc(x.label)}</a>`).join("")}</aside>`;
   return `${breadcrumb(doc)}<div class="doc-layout"><article class="doc" data-pagefind-body>
-    <header class="doc-header"><div class="doc-kicker"><span>${esc(lesson)}</span><span>${esc(doc.data.duration || doc.kind)}</span></div><h1 data-pagefind-meta="title">${esc(doc.title)}</h1><p>${doc.kind === "课程章节" ? "中文精读 · 判断流程 · 常见误区 · 主动回忆" : "从课程原始框架中提炼的中文知识页面"}</p></header>
+    <header class="doc-header"><div class="doc-kicker"><span>${esc(lesson)}</span><span>${esc(doc.data.duration || doc.kind)}</span>${doc.data.detail_level === "deep" ? "<span>英文字幕核验 · 深度版</span>" : ""}</div><h1 data-pagefind-meta="title">${esc(doc.title)}</h1><p>${doc.kind === "课程章节" ? "中文精读 · 判断流程 · 常见误区 · 主动回忆" : "从课程原始框架中提炼的中文知识页面"}</p></header>
     <div class="prose">${rendered}</div>${pager}
   </article>${toc}</div>`;
 }
