@@ -1,0 +1,19 @@
+{
+  "name": "g7fx-orderflow-knowledge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync-content": "node scripts/sync-content.mjs",
+    "build": "node scripts/build.mjs && pagefind --site dist",
+    "dev": "npm run build && serve dist -l 4173",
+    "preview": "serve dist -l 4173",
+    "validate": "py scripts/validate-site.py"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "pagefind": "^1.4.0",
+    "serve": "^14.2.4"
+  }
+}
