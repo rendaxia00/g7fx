@@ -305,7 +305,7 @@ const groups = [
   ["累计 Delta", chapterDocs.filter((d) => d.order >= 21 && d.order <= 22)],
   ["Footprint", chapterDocs.filter((d) => d.order >= 23)],
 ];
-const chapterIndex = `${pageHero("COURSE LIBRARY", "课程章节", "29 个章节，按照课程顺序建立从市场结构到微观执行的完整框架。", `<div class="hero-number">29<small>CHAPTERS</small></div>`)}
+const chapterIndex = `${pageHero("COURSE LIBRARY", "课程章节", "29 个章节已全部完成英文字幕核验与深度升级，覆盖原理、判断条件、失效条件、案例推理和时间定位。", `<div class="hero-number">29<small>DEEP CHAPTERS</small></div>`)}
 <div class="index-layout">
   <nav class="anchor-nav">${groups.map(([name], i) => `<a href="#group-${i}"><span>0${i + 1}</span>${name}</a>`).join("")}</nav>
   <div>${groups.map(([name, docs], i) => `<section class="chapter-group" id="group-${i}"><div class="group-heading"><span>0${i + 1}</span><h2>${name}</h2><small>${docs.length} 个章节</small></div><div class="course-grid">${docs.map(courseCard).join("")}</div></section>`).join("")}</div>
@@ -336,7 +336,7 @@ function docPage(doc, prev = null, next = null) {
   rendered = rendered.replace(/<h2>(.*?)<\/h2>/g, (_, label) => `<h2 id="section-${++tocIndex}">${label}</h2>`);
   const toc = `<aside class="on-this-page"><span>本页内容</span>${tocMatches.map((x) => `<a href="#${x.id}">${esc(x.label)}</a>`).join("")}</aside>`;
   return `${breadcrumb(doc)}<div class="doc-layout"><article class="doc" data-pagefind-body>
-    <header class="doc-header"><div class="doc-kicker"><span>${esc(lesson)}</span><span>${esc(doc.data.duration || doc.kind)}</span>${doc.data.detail_level === "deep" ? "<span>英文字幕核验 · 深度版</span>" : ""}</div><h1 data-pagefind-meta="title">${esc(doc.title)}</h1><p>${doc.kind === "课程章节" ? "中文精读 · 判断流程 · 常见误区 · 主动回忆" : "从课程原始框架中提炼的中文知识页面"}</p></header>
+    <header class="doc-header"><div class="doc-kicker"><span>${esc(lesson)}</span><span>${esc(doc.data.duration || doc.kind)}</span>${doc.data.detail_level === "deep" ? "<span>英文字幕核验 · 深度版</span>" : ""}</div><h1 data-pagefind-meta="title">${esc(doc.title)}</h1><p>${doc.kind === "课程章节" ? "中文精读 · 原理与证据 · 时间定位 · 判断流程 · 主动回忆" : "从课程原始框架中提炼的中文知识页面"}</p></header>
     <div class="prose">${rendered}</div>${pager}
   </article>${toc}</div>`;
 }
