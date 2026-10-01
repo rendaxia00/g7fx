@@ -4,3 +4,8 @@ dist/
 *.log
 __pycache__/
 *.pyc
+.codex/
+.impeccable/config*.json
+.impeccable/critique/
+.impeccable/live/
+.impeccable/qa/

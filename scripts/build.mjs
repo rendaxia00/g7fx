@@ -223,19 +223,24 @@ async function writePage(url, html) {
 
 function courseCard(doc) {
   const [group, groupClass] = chapterGroup(doc.order);
-  const summary = cleanPublicContent(doc.content).match(/>\s*(?!\[!)[^\n]+\n?>?\s*([^\n]+)/)?.[1]
-    || cleanPublicContent(doc.content).match(/## 核心结论\s*\n\s*-\s*([^\n]+)/)?.[1]
+  const summary = doc.content.match(/^> \[!summary\][^\n]*\n>\s*(.+)$/m)?.[1]
+    || doc.content.match(/^## 核心结论\s*\n\s*-\s*(.+)$/m)?.[1]
     || "查看本章中文精读与判断流程。";
+  const plainSummary = summary
+    .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, target, label) => label || target)
+    .replace(/[*_`~]/g, "")
+    .replace(/^#+\s*/, "")
+    .trim();
   return `<a class="course-card" href="${doc.url}">
     <div class="card-top"><span class="lesson-no">P${String(doc.order).padStart(2, "0")}</span><span class="pill ${groupClass}">${group}</span></div>
     <h3>${esc(doc.title.replace(/^P\d+\s*/, ""))}</h3>
-    <p>${esc(summary.replace(/^>\s*/, ""))}</p>
+    <p>${esc(plainSummary)}</p>
     <div class="card-meta">${icon("clock")}<span>${esc(doc.data.duration || "专题课程")}</span>${doc.data.detail_level === "deep" ? '<span class="deep-badge">深度版</span>' : ""}<span class="card-arrow">${icon("arrow")}</span></div>
   </a>`;
 }
 
 function pageHero(kicker, title, lead, extra = "") {
-  return `<section class="page-hero"><div><span class="eyebrow">${esc(kicker)}</span><h1>${title}</h1><p>${esc(lead)}</p></div>${extra}</section>`;
+  return `<section class="page-hero"><div><h1>${title}</h1><p>${esc(lead)}</p></div>${extra}</section>`;
 }
 
 await fs.rm(out, { recursive: true, force: true });
@@ -258,15 +263,18 @@ const featuredTopics = deepDocs.slice(0, 6).map((doc, index) => `
 
 const homeBody = `
 <section class="home-hero">
-  <div class="hero-grid"></div>
   <div class="hero-content">
-    <span class="eyebrow">ORDER FLOW KNOWLEDGE BASE</span>
     <h1>看见成交背后的<br><em>市场逻辑</em></h1>
     <p>以英文课程字幕为依据整理的中文订单流知识体系。覆盖拍卖市场理论、VWAP、多周期价值、累计 Delta 与 Footprint。</p>
-    <div class="hero-actions"><a class="button primary" href="/chapters/">开始学习 ${icon("arrow")}</a><a class="button ghost" href="/search/">${icon("search")}搜索知识库</a></div>
+    <div class="hero-actions" aria-label="学习任务入口">
+      <a class="button primary" href="/chapters/p01/">从 P01 开始 ${icon("arrow")}</a>
+      <a class="button ghost" href="/search/">${icon("search")}查找知识点</a>
+      <a class="button ghost" href="/study/" data-continue-learning><span data-continue-label>周期复习</span></a>
+    </div>
+    <p class="hero-action-note">首次学习从 P01 开始；需要回看时使用搜索；已有进度会显示继续章节。</p>
   </div>
   <div class="market-visual" aria-hidden="true">
-    <div class="visual-head"><span>VALUE MIGRATION</span><span class="live"><i></i> KNOWLEDGE MAP</span></div>
+    <div class="visual-head"><span>价值迁移示意</span><span class="diagram-status"><i></i>课程结构图</span></div>
     <svg viewBox="0 0 640 300" role="img">
       <defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#45e4bd" stop-opacity=".34"/><stop offset="1" stop-color="#45e4bd" stop-opacity="0"/></linearGradient></defs>
       <g class="grid-lines"><path d="M0 45H640M0 105H640M0 165H640M0 225H640M80 0V300M200 0V300M320 0V300M440 0V300M560 0V300"/></g>
@@ -284,7 +292,7 @@ const homeBody = `
 </section>
 
 <section class="content-section intro-section">
-  <div class="section-heading"><div><span class="eyebrow">LEARNING PATH</span><h2>从原始成交到完整假设</h2></div><p>不是背诵信号，而是建立一套能够描述、验证和复盘的市场语言。</p></div>
+  <div class="section-heading"><div><h2>从原始成交到完整假设</h2></div><p>不是背诵信号，而是建立一套能够描述、验证和复盘的市场语言。</p></div>
   <div class="pathway">
     <a href="/maps/moc-01/"><span>01</span><b>拍卖与价值</b><small>平衡 · 失衡 · Profile</small></a>
     <i></i><a href="/maps/moc-02/"><span>02</span><b>多周期情境</b><small>VWAP · 动态/静态价值</small></a>
@@ -294,16 +302,16 @@ const homeBody = `
 </section>
 
 <section class="content-section">
-  <div class="section-heading"><div><span class="eyebrow">FEATURED COURSE</span><h2>课程章节</h2></div><a class="text-link" href="/chapters/">查看全部章节 ${icon("arrow")}</a></div>
+  <div class="section-heading"><div><h2>课程章节</h2></div><a class="text-link" href="/chapters/">查看全部章节 ${icon("arrow")}</a></div>
   <div class="course-grid">${chapterDocs.slice(3, 9).map(courseCard).join("")}</div>
 </section>
 
 <section class="content-section topic-section">
-  <div class="section-heading"><div><span class="eyebrow">DEEP DIVES</span><h2>专题精读</h2></div><p>跨章节整理关键概念，适合快速复习与解决具体问题。</p></div>
+  <div class="section-heading"><div><h2>专题精读</h2></div><p>跨章节整理关键概念，适合快速复习与解决具体问题。</p></div>
   <div class="topic-grid">${featuredTopics}</div>
 </section>
 
-<section class="cta-panel"><div><span class="eyebrow">READY TO START?</span><h2>先建立框架，再寻找机会</h2><p>从 12 周学习路线开始，把观看、回放、主动回忆与交易复盘连接起来。</p></div><a class="button primary" href="/study/">查看学习路线 ${icon("arrow")}</a></section>`;
+<section class="cta-panel"><div><h2>先建立框架，再寻找机会</h2><p>从 12 周学习路线开始，把观看、回放、主动回忆与交易复盘连接起来。</p></div><a class="button primary" href="/study/">查看学习路线 ${icon("arrow")}</a></section>`;
 
 await writePage("/", shell({ title: "G7FX 订单流知识库", description: "订单流交易课程中文知识库与全文检索", body: homeBody, active: "/", pageClass: "home-page" }));
 
@@ -350,9 +358,10 @@ function docPage(doc, prev = null, next = null) {
   rendered = rendered.replace(/<h2>(.*?)<\/h2>/g, (_, label) => `<h2 id="section-${++tocIndex}">${label}</h2>`);
   const toc = `<aside class="on-this-page"><span>本页内容</span>${tocMatches.map((x) => `<a href="#${x.id}">${esc(x.label)}</a>`).join("")}</aside>`;
   const videoBlock = video ? `<section class="lesson-video" id="lesson-video" data-pagefind-ignore>
-    <div class="lesson-video-head"><div><span class="eyebrow">COURSE VIDEO</span><h2>本章课程视频</h2></div><span>${esc(video.duration)}</span></div>
+    <div class="lesson-video-head"><h2>本章课程视频</h2><span>${esc(video.duration)}</span></div>
     <div class="lesson-video-frame"><iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=${esc(video.aid)}&bvid=${esc(video.bvid)}&cid=${esc(video.cid)}&page=1&high_quality=1&danmaku=0" title="${esc(video.title)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-    <div class="lesson-video-foot"><p>${esc(video.title)}</p><a href="https://www.bilibili.com/video/${esc(video.bvid)}" target="_blank" rel="noopener noreferrer">在哔哩哔哩打开 ↗</a></div>
+    <p class="lesson-video-note">播放器加载较慢或出现黑屏时，请使用下方按钮；哔哩哔哩页面支持清晰度和倍速。</p>
+    <div class="lesson-video-foot"><p>${esc(video.title)}</p><a class="button ghost video-external-link" href="https://www.bilibili.com/video/${esc(video.bvid)}" target="_blank" rel="noopener noreferrer">到哔哩哔哩观看 · 清晰度 / 倍速 ↗</a></div>
   </section>` : "";
   return `${breadcrumb(doc)}<div class="doc-layout"><article class="doc" data-pagefind-body>
     <header class="doc-header"><div class="doc-kicker"><span>${esc(lesson)}</span><span>${esc(doc.data.duration || doc.kind)}</span>${doc.data.detail_level === "deep" ? "<span>英文字幕核验 · 深度版</span>" : ""}</div><h1 data-pagefind-meta="title">${esc(doc.title)}</h1><p>${doc.kind === "课程章节" ? "中文精读 · 原理与证据 · 时间定位 · 判断流程 · 主动回忆" : "从课程原始框架中提炼的中文知识页面"}</p></header>
@@ -380,12 +389,15 @@ for (const doc of glossaryDocs) {
 await writePage("/study/", shell({ title: "12周学习路线", description: "G7FX 订单流课程十二周学习与复习计划", body: docPage(studyDoc), active: "/study/", pageClass: "doc-page" }));
 
 const searchBody = `${pageHero("FULL-TEXT SEARCH", "搜索知识库", "输入中文关键词、英文术语或课程编号，检索全部公开知识页面。")}
-<section class="search-shell" data-pagefind-ignore><div id="search"></div><div class="search-hints"><span>试试：</span><a href="?q=慢趋势">慢趋势</a><a href="?q=吸收">吸收</a><a href="?q=动态价值">动态价值</a><a href="?q=Footprint">Footprint</a></div></section>`;
+<section class="search-shell" data-pagefind-ignore><div id="search"></div><div class="search-hints"><span>试试：</span><a href="?q=慢趋势">慢趋势</a><a href="?q=吸收">吸收</a><a href="?q=动态价值">动态价值</a><a href="?q=Footprint">Footprint</a></div><aside class="search-recovery" id="searchRecovery" hidden><h2>换一种方式继续</h2><p>检查关键词，或直接从课程、术语和专题入口浏览。</p><nav aria-label="搜索恢复入口"><a href="/chapters/">浏览课程章节</a><a href="/glossary/">查看术语词典</a><a href="/topics/">进入专题精读</a></nav></aside></section>`;
 const searchHead = '<link href="/pagefind/pagefind-ui.css" rel="stylesheet">';
 const searchScripts = `<script src="/pagefind/pagefind-ui.js"></script><script>
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(location.search);
   const instance = new PagefindUI({ element: '#search', baseUrl: '${siteBase || "/"}', showSubResults: true, showImages: false, resetStyles: false, translations: { placeholder: '搜索章节、概念或术语…', clear_search: '清除', load_more: '加载更多', search_label: '搜索', filters_label: '筛选', zero_results: '没有找到 [SEARCH_TERM] 的相关内容', many_results: '[COUNT] 条结果', one_result: '1 条结果', alt_search: '没有找到 [SEARCH_TERM]，显示 [DIFFERENT_TERM] 的结果', search_suggestion: '没有找到 [SEARCH_TERM]，请尝试：' } });
+  const recovery = document.getElementById('searchRecovery');
+  const syncRecovery = () => { if (recovery) recovery.hidden = !document.getElementById('search')?.innerText.includes('没有找到'); };
+  new MutationObserver(syncRecovery).observe(document.getElementById('search'), { childList: true, subtree: true, characterData: true });
   const q = params.get('q'); if (q) setTimeout(() => instance.triggerSearch(q), 80);
 });
 </script>`;

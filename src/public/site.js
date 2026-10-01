@@ -1,7 +1,35 @@
 (() => {
   const root = document.documentElement;
+  const base = root.dataset.base || "";
   const storedTheme = localStorage.getItem("g7fx-theme");
   if (storedTheme) root.dataset.theme = storedTheme;
+
+  const localPath = location.pathname.startsWith(base) ? location.pathname.slice(base.length) || "/" : location.pathname;
+  const chapterMatch = localPath.match(/^\/chapters\/p(\d{2})\/?$/);
+  if (chapterMatch) {
+    const chapterTitle = document.querySelector(".doc-header h1")?.textContent?.trim() || `P${chapterMatch[1]}`;
+    localStorage.setItem("g7fx-last-chapter", JSON.stringify({
+      number: chapterMatch[1],
+      route: `/chapters/p${chapterMatch[1]}/`,
+      title: chapterTitle,
+      visitedAt: Date.now(),
+    }));
+  }
+
+  const continueLink = document.querySelector("[data-continue-learning]");
+  if (continueLink) {
+    try {
+      const progress = JSON.parse(localStorage.getItem("g7fx-last-chapter") || "null");
+      if (progress?.route && /^\/chapters\/p\d{2}\/$/.test(progress.route)) {
+        continueLink.href = `${base}${progress.route}`;
+        continueLink.querySelector("[data-continue-label]").textContent = `继续 P${progress.number}`;
+        continueLink.setAttribute("aria-label", `继续学习 ${progress.title}`);
+        continueLink.title = progress.title;
+      }
+    } catch {
+      localStorage.removeItem("g7fx-last-chapter");
+    }
+  }
 
   const themeToggle = document.getElementById("themeToggle");
   themeToggle?.addEventListener("click", () => {
@@ -23,7 +51,6 @@
     const typing = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
     if (!typing && (event.key === "/" || ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k"))) {
       event.preventDefault();
-      const base = document.documentElement.dataset.base || "";
       location.href = `${base}/search/`;
     }
     if (event.key === "Escape") closeNav();

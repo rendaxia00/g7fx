@@ -1,0 +1,583 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-01T01:28:23.678467Z",
+  "title": "Design System: G7FX 订单流知识库",
+  "extensions": {
+    "colorMeta": {
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "夜盘墨黑",
+        "canonical": "#071014",
+        "tonalRamp": [
+          "oklch(15% 0.016 226.9)",
+          "oklch(25% 0.016 226.9)",
+          "oklch(35% 0.016 226.9)",
+          "oklch(45% 0.016 226.9)",
+          "oklch(55% 0.016 226.9)",
+          "oklch(68% 0.016 226.9)",
+          "oklch(82% 0.016 226.9)",
+          "oklch(95% 0.016 226.9)"
+        ]
+      },
+      "night-ink-soft": {
+        "role": "neutral",
+        "displayName": "柔夜墨",
+        "canonical": "#0b171c",
+        "tonalRamp": [
+          "oklch(15% 0.020 226.3)",
+          "oklch(25% 0.020 226.3)",
+          "oklch(35% 0.020 226.3)",
+          "oklch(45% 0.020 226.3)",
+          "oklch(55% 0.020 226.3)",
+          "oklch(68% 0.020 226.3)",
+          "oklch(82% 0.020 226.3)",
+          "oklch(95% 0.020 226.3)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "训练面板",
+        "canonical": "#0d1c21",
+        "tonalRamp": [
+          "oklch(15% 0.023 221.3)",
+          "oklch(25% 0.023 221.3)",
+          "oklch(35% 0.023 221.3)",
+          "oklch(45% 0.023 221.3)",
+          "oklch(55% 0.023 221.3)",
+          "oklch(68% 0.023 221.3)",
+          "oklch(82% 0.023 221.3)",
+          "oklch(95% 0.023 221.3)"
+        ]
+      },
+      "panel-raised": {
+        "role": "neutral",
+        "displayName": "抬升面板",
+        "canonical": "#11242a",
+        "tonalRamp": [
+          "oklch(15% 0.027 220.3)",
+          "oklch(25% 0.027 220.3)",
+          "oklch(35% 0.027 220.3)",
+          "oklch(45% 0.027 220.3)",
+          "oklch(55% 0.027 220.3)",
+          "oklch(68% 0.027 220.3)",
+          "oklch(82% 0.027 220.3)",
+          "oklch(95% 0.027 220.3)"
+        ]
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "主文字白",
+        "canonical": "#e9f5f2",
+        "tonalRamp": [
+          "oklch(15% 0.013 179.5)",
+          "oklch(25% 0.013 179.5)",
+          "oklch(35% 0.013 179.5)",
+          "oklch(45% 0.013 179.5)",
+          "oklch(55% 0.013 179.5)",
+          "oklch(68% 0.013 179.5)",
+          "oklch(82% 0.013 179.5)",
+          "oklch(95% 0.013 179.5)"
+        ]
+      },
+      "scale-gray": {
+        "role": "neutral",
+        "displayName": "刻度灰",
+        "canonical": "#88a39d",
+        "tonalRamp": [
+          "oklch(15% 0.031 180.4)",
+          "oklch(25% 0.031 180.4)",
+          "oklch(35% 0.031 180.4)",
+          "oklch(45% 0.031 180.4)",
+          "oklch(55% 0.031 180.4)",
+          "oklch(68% 0.031 180.4)",
+          "oklch(82% 0.031 180.4)",
+          "oklch(95% 0.031 180.4)"
+        ]
+      },
+      "scale-gray-dim": {
+        "role": "neutral",
+        "displayName": "暗刻度灰",
+        "canonical": "#5e7771",
+        "tonalRamp": [
+          "oklch(15% 0.031 178.8)",
+          "oklch(25% 0.031 178.8)",
+          "oklch(35% 0.031 178.8)",
+          "oklch(45% 0.031 178.8)",
+          "oklch(55% 0.031 178.8)",
+          "oklch(68% 0.031 178.8)",
+          "oklch(82% 0.031 178.8)",
+          "oklch(95% 0.031 178.8)"
+        ]
+      },
+      "evidence-mint": {
+        "role": "primary",
+        "displayName": "证据薄荷",
+        "canonical": "#45e4bd",
+        "tonalRamp": [
+          "oklch(15% 0.084 172.6)",
+          "oklch(25% 0.120 172.6)",
+          "oklch(35% 0.142 172.6)",
+          "oklch(45% 0.142 172.6)",
+          "oklch(55% 0.142 172.6)",
+          "oklch(68% 0.142 172.6)",
+          "oklch(82% 0.095 172.6)",
+          "oklch(95% 0.048 172.6)"
+        ]
+      },
+      "evidence-mint-deep": {
+        "role": "primary",
+        "displayName": "深证据薄荷",
+        "canonical": "#1fbf9a",
+        "tonalRamp": [
+          "oklch(15% 0.084 171.6)",
+          "oklch(25% 0.120 171.6)",
+          "oklch(35% 0.135 171.6)",
+          "oklch(45% 0.135 171.6)",
+          "oklch(55% 0.135 171.6)",
+          "oklch(68% 0.135 171.6)",
+          "oklch(82% 0.095 171.6)",
+          "oklch(95% 0.048 171.6)"
+        ]
+      },
+      "mint-contrast": {
+        "role": "neutral",
+        "displayName": "薄荷对比墨",
+        "canonical": "#05231b",
+        "tonalRamp": [
+          "oklch(15% 0.039 172.0)",
+          "oklch(25% 0.039 172.0)",
+          "oklch(35% 0.039 172.0)",
+          "oklch(45% 0.039 172.0)",
+          "oklch(55% 0.039 172.0)",
+          "oklch(68% 0.039 172.0)",
+          "oklch(82% 0.039 172.0)",
+          "oklch(95% 0.039 172.0)"
+        ]
+      },
+      "signal-blue": {
+        "role": "secondary",
+        "displayName": "信号蓝",
+        "canonical": "#65a9ff",
+        "tonalRamp": [
+          "oklch(15% 0.084 255.1)",
+          "oklch(25% 0.120 255.1)",
+          "oklch(35% 0.144 255.1)",
+          "oklch(45% 0.144 255.1)",
+          "oklch(55% 0.144 255.1)",
+          "oklch(68% 0.144 255.1)",
+          "oklch(82% 0.095 255.1)",
+          "oklch(95% 0.048 255.1)"
+        ]
+      },
+      "stage-amber": {
+        "role": "secondary",
+        "displayName": "阶段琥珀",
+        "canonical": "#ffb767",
+        "tonalRamp": [
+          "oklch(15% 0.084 67.4)",
+          "oklch(25% 0.120 67.4)",
+          "oklch(35% 0.128 67.4)",
+          "oklch(45% 0.128 67.4)",
+          "oklch(55% 0.128 67.4)",
+          "oklch(68% 0.128 67.4)",
+          "oklch(82% 0.095 67.4)",
+          "oklch(95% 0.048 67.4)"
+        ]
+      },
+      "delta-red": {
+        "role": "tertiary",
+        "displayName": "Delta 红",
+        "canonical": "#ff7a86",
+        "tonalRamp": [
+          "oklch(15% 0.084 16.3)",
+          "oklch(25% 0.120 16.3)",
+          "oklch(35% 0.156 16.3)",
+          "oklch(45% 0.162 16.3)",
+          "oklch(55% 0.162 16.3)",
+          "oklch(68% 0.145 16.3)",
+          "oklch(82% 0.095 16.3)",
+          "oklch(95% 0.048 16.3)"
+        ]
+      },
+      "paper-bg": {
+        "role": "neutral",
+        "displayName": "纸面浅绿",
+        "canonical": "#f5f9f7",
+        "tonalRamp": [
+          "oklch(15% 0.005 165.0)",
+          "oklch(25% 0.005 165.0)",
+          "oklch(35% 0.005 165.0)",
+          "oklch(45% 0.005 165.0)",
+          "oklch(55% 0.005 165.0)",
+          "oklch(68% 0.005 165.0)",
+          "oklch(82% 0.005 165.0)",
+          "oklch(95% 0.005 165.0)"
+        ]
+      },
+      "paper-soft": {
+        "role": "neutral",
+        "displayName": "柔纸绿",
+        "canonical": "#eaf2ef",
+        "tonalRamp": [
+          "oklch(15% 0.009 171.8)",
+          "oklch(25% 0.009 171.8)",
+          "oklch(35% 0.009 171.8)",
+          "oklch(45% 0.009 171.8)",
+          "oklch(55% 0.009 171.8)",
+          "oklch(68% 0.009 171.8)",
+          "oklch(82% 0.009 171.8)",
+          "oklch(95% 0.009 171.8)"
+        ]
+      },
+      "paper-panel": {
+        "role": "neutral",
+        "displayName": "纸面面板",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0.000 0.0)",
+          "oklch(25% 0.000 0.0)",
+          "oklch(35% 0.000 0.0)",
+          "oklch(45% 0.000 0.0)",
+          "oklch(55% 0.000 0.0)",
+          "oklch(68% 0.000 0.0)",
+          "oklch(82% 0.000 0.0)",
+          "oklch(95% 0.000 0.0)"
+        ]
+      },
+      "paper-panel-raised": {
+        "role": "neutral",
+        "displayName": "浅色抬升面板",
+        "canonical": "#eff6f3",
+        "tonalRamp": [
+          "oklch(15% 0.008 168.8)",
+          "oklch(25% 0.008 168.8)",
+          "oklch(35% 0.008 168.8)",
+          "oklch(45% 0.008 168.8)",
+          "oklch(55% 0.008 168.8)",
+          "oklch(68% 0.008 168.8)",
+          "oklch(82% 0.008 168.8)",
+          "oklch(95% 0.008 168.8)"
+        ]
+      },
+      "ink-green": {
+        "role": "neutral",
+        "displayName": "浅色主题墨绿",
+        "canonical": "#102620",
+        "tonalRamp": [
+          "oklch(15% 0.031 174.0)",
+          "oklch(25% 0.031 174.0)",
+          "oklch(35% 0.031 174.0)",
+          "oklch(45% 0.031 174.0)",
+          "oklch(55% 0.031 174.0)",
+          "oklch(68% 0.031 174.0)",
+          "oklch(82% 0.031 174.0)",
+          "oklch(95% 0.031 174.0)"
+        ]
+      },
+      "light-scale-gray": {
+        "role": "neutral",
+        "displayName": "浅色刻度灰",
+        "canonical": "#58716a",
+        "tonalRamp": [
+          "oklch(15% 0.031 176.1)",
+          "oklch(25% 0.031 176.1)",
+          "oklch(35% 0.031 176.1)",
+          "oklch(45% 0.031 176.1)",
+          "oklch(55% 0.031 176.1)",
+          "oklch(68% 0.031 176.1)",
+          "oklch(82% 0.031 176.1)",
+          "oklch(95% 0.031 176.1)"
+        ]
+      },
+      "light-scale-gray-dim": {
+        "role": "neutral",
+        "displayName": "浅色暗刻度灰",
+        "canonical": "#7b918b",
+        "tonalRamp": [
+          "oklch(15% 0.027 177.1)",
+          "oklch(25% 0.027 177.1)",
+          "oklch(35% 0.027 177.1)",
+          "oklch(45% 0.027 177.1)",
+          "oklch(55% 0.027 177.1)",
+          "oklch(68% 0.027 177.1)",
+          "oklch(82% 0.027 177.1)",
+          "oklch(95% 0.027 177.1)"
+        ]
+      },
+      "light-evidence-mint": {
+        "role": "primary",
+        "displayName": "浅色证据薄荷",
+        "canonical": "#087f68",
+        "tonalRamp": [
+          "oklch(15% 0.084 173.9)",
+          "oklch(25% 0.100 173.9)",
+          "oklch(35% 0.100 173.9)",
+          "oklch(45% 0.100 173.9)",
+          "oklch(55% 0.100 173.9)",
+          "oklch(68% 0.100 173.9)",
+          "oklch(82% 0.095 173.9)",
+          "oklch(95% 0.048 173.9)"
+        ]
+      },
+      "light-evidence-mint-deep": {
+        "role": "primary",
+        "displayName": "浅色深证据薄荷",
+        "canonical": "#0a9b7d",
+        "tonalRamp": [
+          "oklch(15% 0.084 172.3)",
+          "oklch(25% 0.117 172.3)",
+          "oklch(35% 0.117 172.3)",
+          "oklch(45% 0.117 172.3)",
+          "oklch(55% 0.117 172.3)",
+          "oklch(68% 0.117 172.3)",
+          "oklch(82% 0.095 172.3)",
+          "oklch(95% 0.048 172.3)"
+        ]
+      },
+      "light-signal-blue": {
+        "role": "secondary",
+        "displayName": "浅色信号蓝",
+        "canonical": "#2b6ecb",
+        "tonalRamp": [
+          "oklch(15% 0.084 257.6)",
+          "oklch(25% 0.120 257.6)",
+          "oklch(35% 0.156 257.6)",
+          "oklch(45% 0.159 257.6)",
+          "oklch(55% 0.159 257.6)",
+          "oklch(68% 0.145 257.6)",
+          "oklch(82% 0.095 257.6)",
+          "oklch(95% 0.048 257.6)"
+        ]
+      },
+      "light-stage-amber": {
+        "role": "secondary",
+        "displayName": "浅色阶段琥珀",
+        "canonical": "#b96508",
+        "tonalRamp": [
+          "oklch(15% 0.084 58.3)",
+          "oklch(25% 0.120 58.3)",
+          "oklch(35% 0.139 58.3)",
+          "oklch(45% 0.139 58.3)",
+          "oklch(55% 0.139 58.3)",
+          "oklch(68% 0.139 58.3)",
+          "oklch(82% 0.095 58.3)",
+          "oklch(95% 0.048 58.3)"
+        ]
+      },
+      "light-delta-red": {
+        "role": "tertiary",
+        "displayName": "浅色 Delta 红",
+        "canonical": "#c53c4a",
+        "tonalRamp": [
+          "oklch(15% 0.084 19.1)",
+          "oklch(25% 0.120 19.1)",
+          "oklch(35% 0.156 19.1)",
+          "oklch(45% 0.173 19.1)",
+          "oklch(55% 0.173 19.1)",
+          "oklch(68% 0.145 19.1)",
+          "oklch(82% 0.095 19.1)",
+          "oklch(95% 0.048 19.1)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "首页展示标题",
+        "purpose": "仅用于首页核心标题，建立产品方向。"
+      },
+      "headline": {
+        "displayName": "页面标题",
+        "purpose": "章节标题和页面主标题。"
+      },
+      "title": {
+        "displayName": "内容标题",
+        "purpose": "分节、卡片和视频模块标题。"
+      },
+      "body": {
+        "displayName": "中文正文",
+        "purpose": "长篇教学解释、论证和复习材料。"
+      },
+      "action": {
+        "displayName": "操作文字",
+        "purpose": "按钮和关键操作。"
+      },
+      "label": {
+        "displayName": "索引标签",
+        "purpose": "编号、时长、术语、状态和快捷键。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-main",
+        "value": "0 20px 60px rgba(0, 0, 0, .28)",
+        "purpose": "深色主题重点面板与悬停卡片的环境抬升。"
+      },
+      {
+        "name": "action-mint",
+        "value": "0 10px 28px rgba(0, 0, 0, .22)",
+        "purpose": "主操作按钮的中性抬升。"
+      },
+      {
+        "name": "video-support",
+        "value": "0 20px 48px rgba(0, 0, 0, .13)",
+        "purpose": "区分外部课程媒体与正文。"
+      },
+      {
+        "name": "ambient-light",
+        "value": "0 20px 50px rgba(25, 72, 61, .11)",
+        "purpose": "浅色主题中的柔和抬升。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-standard",
+        "value": ".2s ease",
+        "purpose": "按钮、链接和普通状态切换。"
+      },
+      {
+        "name": "card-lift",
+        "value": ".22s ease",
+        "purpose": "课程卡片和专题卡片悬停。"
+      },
+      {
+        "name": "drawer",
+        "value": ".25s ease",
+        "purpose": "移动侧栏与遮罩。"
+      },
+      {
+        "name": "reduced-motion",
+        "value": "none",
+        "purpose": "prefers-reduced-motion 下取消动画、过渡和顺滑滚动。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "content-collapse",
+        "value": "1120px"
+      },
+      {
+        "name": "navigation-drawer",
+        "value": "820px"
+      },
+      {
+        "name": "single-column",
+        "value": "580px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "主要学习动作，证据薄荷填充与短促抬升。",
+      "html": "<button class=\"ds-button-primary\">开始学习</button>",
+      "css": ".ds-button-primary{min-height:44px;padding:0 19px;border:0;border-radius:10px;background:var(--mint,#45e4bd);color:#05231b;font:700 13px/1.7 \"Noto Sans SC\",sans-serif;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.22);transition:.2s ease}.ds-button-primary:hover{transform:translateY(-2px);filter:brightness(1.08)}.ds-button-primary:active{transform:translateY(0)}.ds-button-primary:focus-visible{outline:2px solid var(--mint,#45e4bd);outline-offset:3px}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "次级动作，以边框和文字状态表达交互。",
+      "html": "<button class=\"ds-button-ghost\">查看学习路线</button>",
+      "css": ".ds-button-ghost{min-height:44px;padding:0 19px;border:1px solid rgba(159,209,197,.24);border-radius:10px;background:rgba(255,255,255,.02);color:var(--text,#e9f5f2);font:700 13px/1.7 \"Noto Sans SC\",sans-serif;cursor:pointer;transition:.2s ease}.ds-button-ghost:hover{border-color:var(--mint,#45e4bd);color:var(--mint,#45e4bd)}.ds-button-ghost:focus-visible{outline:2px solid var(--mint,#45e4bd);outline-offset:3px}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "全局知识检索入口，保持低对比但持续可见。",
+      "html": "<label class=\"ds-search\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-4-4\"/></svg><input type=\"search\" placeholder=\"搜索知识点、章节或术语\"></label>",
+      "css": ".ds-search{height:38px;display:flex;align-items:center;gap:10px;padding:0 11px;border:1px solid rgba(159,209,197,.13);border-radius:10px;background:var(--panel,#0d1c21);color:var(--scale-gray,#88a39d);transition:.2s ease}.ds-search:focus-within{border-color:var(--mint,#45e4bd);box-shadow:0 0 0 2px rgba(69,228,189,.12)}.ds-search svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7}.ds-search input{width:100%;border:0;outline:0;background:transparent;color:var(--text,#e9f5f2);font:400 12px/1.7 \"Noto Sans SC\",sans-serif}.ds-search input::placeholder{color:var(--scale-gray,#88a39d)}"
+    },
+    {
+      "name": "Active Navigation Item",
+      "kind": "nav",
+      "description": "侧栏当前章节定位，使用左侧证据线。",
+      "html": "<a class=\"ds-nav-active\" href=\"#\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5z\"/><path d=\"M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5z\"/></svg><span>课程章节</span></a>",
+      "css": ".ds-nav-active{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;background:rgba(69,228,189,.09);box-shadow:inset 3px 0 0 var(--mint,#45e4bd);color:var(--mint,#45e4bd);font:600 14px/1.7 \"Noto Sans SC\",sans-serif;text-decoration:none}.ds-nav-active svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7}.ds-nav-active:hover{background:rgba(69,228,189,.13)}.ds-nav-active:focus-visible{outline:2px solid var(--mint,#45e4bd);outline-offset:3px}"
+    },
+    {
+      "name": "Course Card",
+      "kind": "card",
+      "refersTo": "course-card",
+      "description": "章节索引卡，依靠编号、分类、摘要和时长建立扫描顺序。",
+      "html": "<a class=\"ds-course-card\" href=\"#\"><div class=\"ds-card-top\"><strong>P04</strong><span>拍卖市场理论</span></div><h3>AMT 1：拍卖市场与交易数据</h3><p>从价值、接受与失衡建立市场情境。</p><small>01:48:00 · 深度版</small></a>",
+      "css": ".ds-course-card{min-height:220px;padding:20px;display:flex;flex-direction:column;border:1px solid rgba(159,209,197,.13);border-radius:15px;background:var(--panel,#0d1c21);color:var(--text,#e9f5f2);text-decoration:none;transition:.22s ease}.ds-course-card:hover{transform:translateY(-4px);border-color:rgba(69,228,189,.35);box-shadow:0 20px 60px rgba(0,0,0,.28)}.ds-course-card:focus-visible{outline:2px solid var(--mint,#45e4bd);outline-offset:3px}.ds-card-top{display:flex;justify-content:space-between;gap:12px}.ds-card-top strong{color:var(--mint,#45e4bd);font:800 12px Manrope,sans-serif}.ds-card-top span{padding:4px 8px;border:1px solid rgba(159,209,197,.13);border-radius:999px;color:var(--scale-gray,#88a39d);font:700 12px \"Noto Sans SC\",sans-serif}.ds-course-card h3{margin:24px 0 10px;font:700 16px/1.45 \"Noto Sans SC\",sans-serif}.ds-course-card p{margin:0;color:var(--scale-gray,#88a39d);font:400 12px/1.7 \"Noto Sans SC\",sans-serif}.ds-course-card small{margin-top:auto;padding-top:18px;color:var(--scale-gray,#88a39d);font:600 12px Manrope,sans-serif}"
+    },
+    {
+      "name": "Metadata Chip",
+      "kind": "chip",
+      "refersTo": "metadata-chip",
+      "description": "章节编号、时长和核验状态的紧凑索引标记。",
+      "html": "<span class=\"ds-chip\">英文字幕核验 · 深度版</span>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;padding:4px 9px;border:1px solid rgba(69,228,189,.18);border-radius:999px;background:rgba(69,228,189,.08);color:var(--mint,#45e4bd);font:700 12px/1.2 Manrope,sans-serif;letter-spacing:.04em}.ds-chip:focus-visible{outline:2px solid var(--mint,#45e4bd);outline-offset:2px}"
+    },
+    {
+      "name": "Knowledge Callout",
+      "kind": "custom",
+      "description": "关键结论和一句话定位使用的证据批注。",
+      "html": "<aside class=\"ds-callout\"><strong>一句话定位</strong><p>先判断市场情境，再解释微观订单流。</p></aside>",
+      "css": ".ds-callout{padding:18px 20px;border:1px solid rgba(69,228,189,.2);border-radius:11px;background:rgba(69,228,189,.05);color:var(--scale-gray,#88a39d);font:400 14px/1.7 \"Noto Sans SC\",sans-serif}.ds-callout strong{display:block;margin-bottom:7px;color:var(--mint,#45e4bd);font-size:12px}.ds-callout p{margin:0}"
+    },
+    {
+      "name": "Lesson Video Panel",
+      "kind": "custom",
+      "description": "正文前的视频学习工具，保持课程来源与播放时长可见。",
+      "html": "<section class=\"ds-video\"><header><h3>本章课程视频</h3><span>41:24</span></header><div class=\"ds-video-frame\"><button aria-label=\"播放课程视频\">▶</button></div><footer><span>G7FX Pro · P01</span><a href=\"#\">在哔哩哔哩打开 ↗</a></footer></section>",
+      "css": ".ds-video{padding:20px;border:1px solid rgba(159,209,197,.13);border-radius:16px;background:linear-gradient(145deg,rgba(69,228,189,.055),var(--panel,#0d1c21));color:var(--text,#e9f5f2);box-shadow:0 20px 48px rgba(0,0,0,.13);font-family:\"Noto Sans SC\",sans-serif}.ds-video header,.ds-video footer{display:flex;align-items:center;justify-content:space-between;gap:18px}.ds-video header{margin-bottom:16px}.ds-video h3{margin:0;font-size:20px}.ds-video header span,.ds-video footer{color:var(--scale-gray,#88a39d);font:700 12px Manrope,sans-serif}.ds-video-frame{aspect-ratio:16/9;display:grid;place-items:center;border:1px solid rgba(159,209,197,.24);border-radius:11px;background:#000}.ds-video-frame button{width:54px;height:54px;border:1px solid rgba(69,228,189,.5);border-radius:50%;background:rgba(69,228,189,.12);color:var(--mint,#45e4bd);cursor:pointer}.ds-video-frame button:hover{background:rgba(69,228,189,.2)}.ds-video-frame button:focus-visible{outline:2px solid var(--mint,#45e4bd);outline-offset:3px}.ds-video footer{padding-top:13px}.ds-video a{color:var(--mint,#45e4bd);text-decoration:none}"
+    }
+  ],
+  "narrative": {
+    "northStar": "订单流作战手册",
+    "overview": "这套系统像一本在交易台旁反复翻阅的专业训练手册：深色基底压低环境噪声，证据薄荷只标记可行动、可定位或已激活的信息。它不模拟交易所，也不追求刺激感；设计的任务是让章节结构、术语关系和证据位置更容易被理解与复习。\n\n界面以冷静的二维分层和紧凑但不拥挤的信息密度组织内容。大标题建立章节方向，Manrope 标签和数字承担索引功能，Noto Sans SC 负责连续中文阅读。细边框比阴影更常用，阴影仅用于关键面板或交互抬升。",
+    "keyCharacteristics": [
+      "专业、冷静、严谨，并保持明确的教学导向。",
+      "以章节、证据和复习路径为中心，而不是模拟实时交易终端。",
+      "深色优先并提供语义一致的浅色主题。",
+      "强调色克制使用，信息层级主要依靠字号、间距、边框和表面色差建立。",
+      "动效短促、功能性明确，并尊重减少动态效果偏好。"
+    ],
+    "rules": [
+      {
+        "name": "证据色稀缺规则",
+        "body": "证据薄荷只用于交互、定位、状态和结构锚点；不得把整屏变成霓虹绿光或交易所促销界面。",
+        "section": "colors"
+      },
+      {
+        "name": "语义颜色守恒规则",
+        "body": "蓝、琥珀和红保持稳定的概念分类含义，不因页面不同而随意换色。",
+        "section": "colors"
+      },
+      {
+        "name": "双通道排版规则",
+        "body": "Noto Sans SC 承担知识解释，Manrope 承担索引与数据；不得让大段中文正文使用 Manrope，也不得用多种展示字体制造装饰性层级。",
+        "section": "typography"
+      },
+      {
+        "name": "阅读轴优先规则",
+        "body": "长篇知识内容始终保持清晰的单一阅读轴；辅助目录、视频和翻页控件服务于定位，不与正文争夺主视觉。",
+        "section": "layout"
+      },
+      {
+        "name": "默认平面规则",
+        "body": "普通卡片静止时依靠色面和边框分层；阴影只作为重点层级或交互反馈，不成为所有容器的常驻装饰。",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "让章节编号、标题、摘要、视频、正文和复习问题形成稳定的学习顺序。",
+      "用证据薄荷标记交互与定位，用刻度灰承载辅助信息。",
+      "优先通过字号、留白、表面色差和细边框建立层级。",
+      "同时验证深色、浅色、桌面和移动布局。",
+      "保留清楚的键盘焦点、减少动态效果模式和可读中文行高。"
+    ],
+    "donts": [
+      "引入交易所广告感、加密货币霓虹风、游戏化徽章或拥挤数据大屏。",
+      "把证据薄荷扩张为大面积发光背景或持续闪烁效果。",
+      "使用无信息价值的装饰图表、收益数字或虚构实时行情。",
+      "让多个卡片都使用常驻重阴影，也不要用玻璃拟态替代真实层级。",
+      "用过多英文、缩写或极小字号增加专业感；教学可读性始终优先。"
+    ]
+  }
+}
