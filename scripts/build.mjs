@@ -359,9 +359,9 @@ function docPage(doc, prev = null, next = null) {
   const toc = `<aside class="on-this-page"><span>本页内容</span>${tocMatches.map((x) => `<a href="#${x.id}">${esc(x.label)}</a>`).join("")}</aside>`;
   const videoBlock = video ? `<section class="lesson-video" id="lesson-video" data-pagefind-ignore>
     <div class="lesson-video-head"><h2>本章课程视频</h2><span>${esc(video.duration)}</span></div>
-    <div class="lesson-video-frame"><iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=${esc(video.aid)}&bvid=${esc(video.bvid)}&cid=${esc(video.cid)}&p=1&poster=1&autoplay=0&danmaku=0" title="${esc(video.title)}" loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation allow-modals" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-    <p class="lesson-video-note">B站外链播放器可能把部分清晰度或倍速操作引导至主站；本站已阻止其接管当前页面。需要完整播放控制时，请使用下方按钮在新标签页观看。</p>
-    <div class="lesson-video-foot"><p>${esc(video.title)}</p><a class="button ghost video-external-link" href="https://www.bilibili.com/video/${esc(video.bvid)}" target="_blank" rel="noopener noreferrer">新标签页调整清晰度 / 倍速 ↗</a></div>
+    <div class="lesson-video-frame"><iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=${esc(video.aid)}&bvid=${esc(video.bvid)}&cid=${esc(video.cid)}&page=1&high_quality=1&danmaku=0" title="${esc(video.title)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <p class="lesson-video-note">使用B站移动版内嵌播放器；如需调整清晰度或倍速，请使用下方按钮在新标签页观看。</p>
+    <div class="lesson-video-foot"><p>${esc(video.title)}</p><a class="button ghost video-external-link" href="https://www.bilibili.com/video/${esc(video.bvid)}" target="_blank" rel="noopener noreferrer">到哔哩哔哩观看 · 清晰度 / 倍速 ↗</a></div>
   </section>` : "";
   return `${breadcrumb(doc)}<div class="doc-layout"><article class="doc" data-pagefind-body>
     <header class="doc-header"><div class="doc-kicker"><span>${esc(lesson)}</span><span>${esc(doc.data.duration || doc.kind)}</span>${doc.data.detail_level === "deep" ? "<span>英文字幕核验 · 深度版</span>" : ""}</div><h1 data-pagefind-meta="title">${esc(doc.title)}</h1><p>${doc.kind === "课程章节" ? "中文精读 · 原理与证据 · 时间定位 · 判断流程 · 主动回忆" : "从课程原始框架中提炼的中文知识页面"}</p></header>
