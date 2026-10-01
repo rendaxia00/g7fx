@@ -359,8 +359,8 @@ function docPage(doc, prev = null, next = null) {
   const toc = `<aside class="on-this-page"><span>本页内容</span>${tocMatches.map((x) => `<a href="#${x.id}">${esc(x.label)}</a>`).join("")}</aside>`;
   const videoBlock = video ? `<section class="lesson-video" id="lesson-video" data-pagefind-ignore>
     <div class="lesson-video-head"><h2>本章课程视频</h2><span>${esc(video.duration)}</span></div>
-    <div class="lesson-video-frame"><iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=${esc(video.aid)}&bvid=${esc(video.bvid)}&cid=${esc(video.cid)}&page=1&high_quality=1&danmaku=0" title="${esc(video.title)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-    <p class="lesson-video-note">播放器加载较慢或出现黑屏时，请使用下方按钮；哔哩哔哩页面支持清晰度和倍速。</p>
+    <div class="lesson-video-frame"><iframe src="https://player.bilibili.com/player.html?aid=${esc(video.aid)}&bvid=${esc(video.bvid)}&cid=${esc(video.cid)}&p=1&poster=1&autoplay=0&danmaku=0" title="${esc(video.title)}" loading="lazy" scrolling="no" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <p class="lesson-video-note">已使用哔哩哔哩官方站外播放器；可在播放器控制栏中调整清晰度、倍速、音量和全屏。</p>
     <div class="lesson-video-foot"><p>${esc(video.title)}</p><a class="button ghost video-external-link" href="https://www.bilibili.com/video/${esc(video.bvid)}" target="_blank" rel="noopener noreferrer">到哔哩哔哩观看 · 清晰度 / 倍速 ↗</a></div>
   </section>` : "";
   return `${breadcrumb(doc)}<div class="doc-layout"><article class="doc" data-pagefind-body>
